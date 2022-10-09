@@ -1,6 +1,7 @@
 package io.github.bytecode.bytecodediscordbot.commands;
 
 import io.github.bytecode.bytecodediscordbot.commands.impl.ClearCommand;
+import io.github.bytecode.bytecodediscordbot.commands.impl.MessageCommand;
 import io.github.bytecode.bytecodediscordbot.commands.impl.PingCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -15,6 +16,7 @@ public class CommandManager {
     public CommandManager() {
         addCommand(new PingCommand());
         addCommand(new ClearCommand());
+        addCommand(new MessageCommand());
     }
 
     private void addCommand(ICommand command) {

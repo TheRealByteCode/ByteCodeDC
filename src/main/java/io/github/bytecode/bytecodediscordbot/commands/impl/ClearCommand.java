@@ -2,7 +2,6 @@ package io.github.bytecode.bytecodediscordbot.commands.impl;
 
 import io.github.bytecode.bytecodediscordbot.commands.ICommand;
 import io.github.bytecode.bytecodediscordbot.commands.SlashCommandContext;
-import net.dv8tion.jda.api.exceptions.ContextException;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
