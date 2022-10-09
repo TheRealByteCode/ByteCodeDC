@@ -1,17 +1,16 @@
 package io.github.bytecode.bytecodediscordbot;
 
+import com.google.common.io.Files;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+
 public final class ByteCodeDiscordBot extends JavaPlugin {
-
-    private static ByteCodeDiscordBot instance;
-    private Bot botInstance;
-
     @Override
     public void onEnable() {
-        instance = this;
-
         String token = getConfig().getString("token");
 
         if(token == null || token.length() == 0){
@@ -20,7 +19,7 @@ public final class ByteCodeDiscordBot extends JavaPlugin {
             return;
         }
 
-        botInstance = new Bot(token);
+        new Bot(token);
 
         getLogger().info("ByteCodeDiscordBot has been enabled!");
     }
