@@ -1,5 +1,7 @@
 package io.github.bytecode.bytecodediscordbot.commands;
 
+import io.github.bytecode.bytecodediscordbot.commands.impl.ClearCommand;
+import io.github.bytecode.bytecodediscordbot.commands.impl.PingCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
@@ -11,7 +13,8 @@ public class CommandManager {
     private List<ICommand> commands = new ArrayList<>();
 
     public CommandManager() {
-
+        addCommand(new PingCommand());
+        addCommand(new ClearCommand());
     }
 
     private void addCommand(ICommand command) {
@@ -39,7 +42,6 @@ public class CommandManager {
     }
 
     public void handle(SlashCommandInteractionEvent event) {
-        event.deferReply();
         ICommand command = this.getCommand(event.getName());
 
         if(command == null) {

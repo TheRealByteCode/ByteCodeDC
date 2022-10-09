@@ -5,6 +5,7 @@ import io.github.bytecode.bytecodediscordbot.commands.ICommand;
 import io.github.bytecode.bytecodediscordbot.utils.ID;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.ReadyEvent;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
@@ -22,6 +23,11 @@ public class EventManager extends ListenerAdapter {
         });
 
         guild.updateCommands().queueAfter(1, TimeUnit.SECONDS);
+    }
 
+    @Override
+    public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
+        event.deferReply().queue();
+        Bot.getInstance().getCommandManager().handle(event);
     }
 }

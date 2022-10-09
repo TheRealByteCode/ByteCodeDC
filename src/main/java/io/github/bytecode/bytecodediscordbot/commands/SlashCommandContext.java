@@ -10,6 +10,11 @@ import net.dv8tion.jda.api.interactions.InteractionHook;
 public class SlashCommandContext {
     private SlashCommandInteractionEvent event;
 
+
+    public SlashCommandInteractionEvent getEvent() {
+        return event;
+    }
+
     public SlashCommandContext(SlashCommandInteractionEvent event){
         this.event = event;
     }
@@ -18,15 +23,15 @@ public class SlashCommandContext {
         return event.getGuild();
     }
 
-    private Member getMember() {
+    public Member getMember() {
         return event.getMember();
     }
 
-    private MessageChannel getChannel() {
+    public MessageChannel getChannel() {
         return event.getChannel();
     }
 
-    private InteractionHook getHook() {
+    public InteractionHook getHook() {
         return event.getHook();
     }
 }
