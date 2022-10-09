@@ -1,0 +1,6 @@
+name: ByteCodeDiscordBot
+version: '${project.version}'
+main: io.github.bytecode.bytecodediscordbot.ByteCodeDiscordBot
+api-version: 1.19
+authors: [ TheWebcode ]
+description: ByteCodeDiscord Bot
